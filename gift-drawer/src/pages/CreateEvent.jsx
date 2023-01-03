@@ -1,11 +1,10 @@
 import { useState } from "react";
+import {useNavigate} from 'react-router-dom'
+import formatDate from "../../functions/formatDate";
 function CreateEvent() {
-  const formatDate = (date=new Date()) =>{
-    const month = (date.getMonth()+ 1).toString() ; 
-    return `${date.getFullYear()}-${month.padStart(2,0)}-${date.getDate().toString().padStart(2,0)}T${date.getHours()}:${date.getMinutes()}`
-  }
+  const urlEvents = "http://localhost:8000/events"
   const name = sessionStorage.getItem("eventName")
-
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     eventName:name,
     maxPrice:50,
@@ -20,7 +19,6 @@ function CreateEvent() {
       [e.target.name]: e.target.value,
     }))
   }
-  
   const addMember = () =>{
     setFormData((prevState) => ({
         ...prevState,
@@ -35,12 +33,29 @@ function CreateEvent() {
         members: [...newMembers]       
     }))
   }
-  const handleSubmit = () =>{
+  const id = Number(new Date());
+  const handleSubmit = (e) =>{
+    e.preventDefault()
+    console.log("Form submit")
+    const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            ...formData,
+            id: id
+        })
 
+    }
+    fetch(urlEvents, options)
+        .then(() =>{
+            navigate(`/event/${id}`)
+        })
   }
   return (
     <section className="createEvent">
-        <form onSubmit={handleSubmit} className="createEvent__form">
+        <form className="createEvent__form" onSubmit={handleSubmit}>
             <label>Event Name</label>
             <input 
                 type="text" 
@@ -111,8 +126,8 @@ function CreateEvent() {
                 }
                     
             </ol>
-            <div className="btn--form" id="addMoreBtn" onClick={addMember}>Add more</div>
-            <button id="createEventBtn" className="btn--form">Create Event</button>
+            {/* <div className="btn--form" id="addMoreBtn" onClick={addMember}>Add more</div> */}
+            <button className="btn--form">Create Event</button>
         </form>
     </section>
   )
