@@ -1,0 +1,8 @@
+@mixin setFont($family: inherit, $size : inherit
+, $weight : inherit){
+    font: {
+        family:$family;
+        size: $size;
+        weight:$weight;
+    }
+}

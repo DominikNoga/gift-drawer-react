@@ -1,0 +1,79 @@
+@use '../abstracts/colors' as colors;
+.about{
+    width: 65%;
+    margin: auto;
+    font-size: 20px;
+   
+    .main__article{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    p{
+        display: block;
+    }
+    .article__title{
+        font-size:2.2em;
+    }
+    .article__subtitle{
+        font-size: 18px;
+        width: 70%;
+    }
+    .instruction{
+        text-align: start;
+        position: relative;
+        overflow: hidden;
+    }
+    .instruction__list{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .instruction__point{
+        margin-left: 5em;
+        width: 70%;
+        position: relative;
+        &::after{
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            border-radius:50%;
+            position: absolute;
+            background-color: white;
+            border:3px solid black;
+            top:.4em;
+            left:-1.2em;
+            z-index: 1;
+        }
+        &::before{
+            content: '';
+            display: block;
+            width: 1px;
+            background-color: rgb(158, 142, 142);
+            position: absolute;
+            top:.4em;
+            left:-.9em;
+            height: calc(100% + 1.5em);
+        }
+        &:last-child{
+            &::before{
+                display: none;
+            }
+        }
+    }
+    .instruction__point--title{
+        margin-bottom: .5em;
+        font-size: 26px;
+    }
+    .line{
+        width: 1px;
+        background-color: rgb(136, 136, 136);
+        position: absolute;
+        min-height:390px;
+        top:35px;
+        left: calc(6em + 2px);
+        z-index: 0;
+    }
+}

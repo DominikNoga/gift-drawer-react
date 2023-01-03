@@ -1,0 +1,37 @@
+@use '../abstracts/colors' as colors;
+.btn{
+    border-radius: 2em;
+    color:inherit;
+    transition: opacity .3s;
+    padding:.6em 1em;
+    border:none;
+    background-color: colors.$santaHat;
+    &:hover{
+        cursor: pointer;
+        opacity: .8;
+    }
+}
+.btn--important{
+    @extend .btn;
+    font-weight: bold;
+}
+.btn--form{
+    @extend .btn;
+    display: block;
+    background-color:colors.$santaHat;
+    color:white;
+    text-align: center;
+}
+.btn--draw{
+    @extend .btn;
+    background-color: rgb(35, 158, 35);
+    font-size: 25px;
+    color:white;
+    font-weight: bold;
+}
+.btn--edit{
+    @extend .btn;
+    max-width: 8em;
+    color:white;
+    font-weight: bold;
+}

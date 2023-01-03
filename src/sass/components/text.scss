@@ -1,0 +1,8 @@
+@use '../mixins/text' as mixins;
+#eventTitle{
+    @include mixins.setFont($family:Serif,$size: 26px, $weight:500);
+}
+.txt--title{
+    @include mixins.setFont($size: 30px, $weight:bold);
+    margin-bottom: .4em;
+}

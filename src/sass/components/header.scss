@@ -1,0 +1,67 @@
+@use './buttons';
+@use '../abstracts/colors' as colors;
+$mainInputHeight:3em;
+.header{
+    width: 100%;
+    height: 100vh;
+    text-shadow: 0 0 5px rgba(black ,.3);
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: Lato;
+    justify-content: center;
+    a{
+        color:inherit;
+    }
+    
+    background: {
+        image: url("../img/bg__giftBlue.jpg");
+        size: 100% 100vh;
+        repeat:no-repeat;
+    }
+    .inputField{
+        width: 80%;
+        margin: auto;
+        position: relative;
+        height: $mainInputHeight;
+    }
+    .main__section{
+        color:white;
+        transform: translateY(-50%);
+        width: 400px;
+    }
+    .main__input{
+        width: 100%;
+        border-radius: 2em;
+        height: $mainInputHeight;
+        border:none;
+        position: relative;
+        &:focus{
+            outline:none;
+        }
+        &::before{
+            content: '';
+            display: block;
+            position: absolute;
+            width: 500px;
+            height: $mainInputHeight;
+            top:0;
+            left: 0;
+            box-shadow: 0 0 10px rgba(black, .4);
+            padding:2em;
+            background-color: red;
+        }
+    }
+    .insideBtn{
+        @extend .btn--important;
+        position: absolute;
+        right: 0;
+        top:50%;
+        padding:0 2em;
+        height: calc($mainInputHeight - .3em);
+        background-color: colors.$santaHat;
+        transform: translate(-2%, -62%); 
+        border:none;  
+    }
+}

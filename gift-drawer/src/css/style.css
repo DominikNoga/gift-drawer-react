@@ -1,0 +1,349 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+.btn, .btn--edit, .btn--draw, .btn--form, .btn--important, .header .insideBtn {
+  border-radius: 2em;
+  color: inherit;
+  transition: opacity 0.3s;
+  padding: 0.6em 1em;
+  border: none;
+  background-color: #db1c39;
+}
+.btn:hover, .btn--edit:hover, .btn--draw:hover, .btn--form:hover, .btn--important:hover, .header .insideBtn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.btn--important, .header .insideBtn {
+  font-weight: bold;
+}
+
+.btn--form {
+  display: block;
+  background-color: #db1c39;
+  color: white;
+  text-align: center;
+}
+
+.btn--draw {
+  background-color: rgb(35, 158, 35);
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+}
+
+.btn--edit {
+  max-width: 8em;
+  color: white;
+  font-weight: bold;
+}
+
+.header {
+  width: 100%;
+  height: 100vh;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: Lato;
+  justify-content: center;
+  background-image: url("../img/bg__giftBlue.jpg");
+  background-size: 100% 100vh;
+  background-repeat: no-repeat;
+}
+.header a {
+  color: inherit;
+}
+.header .inputField {
+  width: 80%;
+  margin: auto;
+  position: relative;
+  height: 3em;
+}
+.header .main__section {
+  color: white;
+  transform: translateY(-50%);
+  width: 400px;
+}
+.header .main__input {
+  width: 100%;
+  border-radius: 2em;
+  height: 3em;
+  border: none;
+  position: relative;
+}
+.header .main__input:focus {
+  outline: none;
+}
+.header .main__input::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 500px;
+  height: 3em;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  padding: 2em;
+  background-color: red;
+}
+.header .insideBtn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  padding: 0 2em;
+  height: 2.7em;
+  background-color: #db1c39;
+  transform: translate(-2%, -62%);
+  border: none;
+}
+
+.about {
+  width: 65%;
+  margin: auto;
+  font-size: 20px;
+}
+.about .main__article {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about p {
+  display: block;
+}
+.about .article__title {
+  font-size: 2.2em;
+}
+.about .article__subtitle {
+  font-size: 18px;
+  width: 70%;
+}
+.about .instruction {
+  text-align: start;
+  position: relative;
+  overflow: hidden;
+}
+.about .instruction__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.about .instruction__point {
+  margin-left: 5em;
+  width: 70%;
+  position: relative;
+}
+.about .instruction__point::after {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: white;
+  border: 3px solid black;
+  top: 0.4em;
+  left: -1.2em;
+  z-index: 1;
+}
+.about .instruction__point::before {
+  content: "";
+  display: block;
+  width: 1px;
+  background-color: rgb(158, 142, 142);
+  position: absolute;
+  top: 0.4em;
+  left: -0.9em;
+  height: calc(100% + 1.5em);
+}
+.about .instruction__point:last-child::before {
+  display: none;
+}
+.about .instruction__point--title {
+  margin-bottom: 0.5em;
+  font-size: 26px;
+}
+.about .line {
+  width: 1px;
+  background-color: rgb(136, 136, 136);
+  position: absolute;
+  min-height: 390px;
+  top: 35px;
+  left: calc(6em + 2px);
+  z-index: 0;
+}
+
+.footer {
+  background-color: rgb(135, 199, 227);
+  color: white;
+  margin-top: 1em;
+  padding: 1em 0;
+  text-align: center;
+}
+
+.createEvent {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/bg__giftBlue.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  counter-reset: newMember;
+}
+.createEvent .createEvent__form {
+  transform: translateY(-10%);
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+}
+.createEvent label {
+  float: left;
+}
+.createEvent .input--basic, .createEvent .memberName {
+  height: 2em;
+}
+.createEvent .membersList {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  grid-column: 1/3;
+  gap: 0.5em;
+  padding: 0;
+  margin: 0;
+}
+.createEvent #createEventBtn {
+  grid-column: 1/3;
+  width: 70%;
+  margin: auto;
+}
+.createEvent .members__item::before {
+  counter-increment: newMember;
+  font-weight: bold;
+  content: "#" counter(newMember);
+}
+.createEvent .memberName {
+  width: 80%;
+}
+.createEvent #addMoreBtn {
+  grid-column: 2/3;
+}
+
+#eventTitle {
+  font-family: Serif;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.txt--title {
+  font-family: inherit;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 0.4em;
+}
+
+header {
+  background-color: rgb(135, 199, 227);
+  padding: 2em 0;
+  color: white;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.event__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  margin-bottom: 3em;
+  margin: auto;
+}
+.event__container .event__info {
+  display: flex;
+  align-self: flex-end;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.event__container .party__info {
+  background-color: rgb(250, 239, 239);
+  padding: 1em 3em;
+  display: flex;
+  flex-direction: column;
+}
+.event__container #event__members {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  width: 100%;
+}
+.event__container .member, .event__container .member--header {
+  padding: 0.5em 1em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+.event__container .member--header {
+  font-weight: bold;
+  border-bottom: dotted 4px rgb(135, 199, 227);
+}
+.event__container .item--left {
+  justify-self: start;
+}
+.event__container .item--right {
+  justify-self: end;
+}
+
+#loadingWindow {
+  display: none;
+  background-color: white;
+  z-index: 10;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+}
+#loadingWindow #loader {
+  border-radius: 50%;
+  border-bottom: rgb(135, 199, 227) solid 5px;
+  border-top: #db1c39 solid 5px;
+  height: 2em;
+  width: 2em;
+  animation: spinCircle 0.5s both ease-in 20;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#loadingWindow #chosenUser {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+@keyframes spinCircle {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
