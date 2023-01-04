@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 import UsingInstruction from "../components/UsingInstruction";
 
 function Home() {
@@ -38,6 +38,7 @@ function Home() {
                     >
                         Create
                     </button>
+                    <Link className="joinEventLink" to="/joinEvent">Join existing event</Link>
                 </div>
             </section>
         </header>

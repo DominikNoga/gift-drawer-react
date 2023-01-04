@@ -4,6 +4,8 @@
     color:inherit;
     transition: opacity .3s;
     padding:.6em 1em;
+    color:white;
+    font-weight: bold;
     border:none;
     background-color: colors.$santaHat;
     &:hover{
@@ -19,19 +21,34 @@
     @extend .btn;
     display: block;
     background-color:colors.$santaHat;
-    color:white;
     text-align: center;
+    margin: auto;
+    font-weight: bold;
 }
 .btn--draw{
     @extend .btn;
     background-color: rgb(35, 158, 35);
     font-size: 25px;
-    color:white;
     font-weight: bold;
 }
 .btn--edit{
     @extend .btn;
     max-width: 8em;
-    color:white;
     font-weight: bold;
+}
+.btn--circle{
+    width: 1em;
+    height: 1em;
+    padding:.5em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: colors.$santaHat;
+    &:hover{
+        cursor: pointer;
+        opacity: .8;
+    }
 }

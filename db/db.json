@@ -1,5 +1,31 @@
 {
-    "events":[
-        
-    ]
+  "events": [
+    {
+      "eventName": "Mikolajki 2022",
+      "maxPrice": 50,
+      "eventDate": "2023-01-04T22:09",
+      "password": "haslo",
+      "password2": "haslo",
+      "members": [
+        "adi",
+        "tomek",
+        "arek"
+      ],
+      "id": 1672780203604
+    },
+    {
+      "eventName": "Mikolajki",
+      "maxPrice": "150",
+      "eventDate": "2023-01-20T22:43",
+      "password": "haslo",
+      "members": [
+        "Zuzka",
+        "Domin",
+        "Patryk",
+        "Angi",
+        "Bartas"
+      ],
+      "id": 1672782274606
+    }
+  ]
 }

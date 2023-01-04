@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {useNavigate} from 'react-router-dom'
-import formatDate from "../../functions/formatDate";
+import formatDate from "../functions/formatDate";
 function CreateEvent() {
   const urlEvents = "http://localhost:8000/events"
   const name = sessionStorage.getItem("eventName")
@@ -36,21 +36,26 @@ function CreateEvent() {
   const id = Number(new Date());
   const handleSubmit = (e) =>{
     e.preventDefault()
-    console.log("Form submit")
+    const event = {
+        "eventName": formData.eventName,
+        "maxPrice": formData.maxPrice,
+        "eventDate": formData.eventDate,
+        "password": formData.password,
+        "members": formData.members,
+        "id": id
+    }
     const options = {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            ...formData,
-            id: id
-        })
+        body: JSON.stringify(event)
 
     }
     fetch(urlEvents, options)
         .then(() =>{
-            navigate(`/event/${id}`)
+            sessionStorage.setItem("id", id)
+            navigate(`/joinEvent`)
         })
   }
   return (
@@ -121,12 +126,12 @@ function CreateEvent() {
                             changeMember(e,i)
                           }}
                         />
-                      </li>
+                      </li> 
                     ))
                 }
                     
             </ol>
-            {/* <div className="btn--form" id="addMoreBtn" onClick={addMember}>Add more</div> */}
+            <div className="btn--circle" onClick={addMember}>+</div>
             <button className="btn--form">Create Event</button>
         </form>
     </section>

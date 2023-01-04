@@ -64,4 +64,16 @@ $mainInputHeight:3em;
         transform: translate(-2%, -62%); 
         border:none;  
     }
+    .joinEventLink{
+        display: block;
+        text-shadow: none;
+        margin-top: 1em;
+        color:colors.$santaHat;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    .joinEventLink:hover{
+        text-decoration: underline;
+    }
 }
