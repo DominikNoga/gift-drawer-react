@@ -1,29 +1,35 @@
-
 function EventInfo(props) {
     const eventData = props.eventData;
-    const username = props.username;
+    const currentUser = props.currentUser;  
+    const updateEvent = props.updateEvent;                  
+    const eventDate = new Date(eventData.date).toUTCString();
+    
   return (
     <section className="event__info">
-        <section className="drawing__info">
-            <p id="greetUser" className="txt--title">
-                Hello {username}
+        <section className="info__cart">
+            <p className="txt--title">
+                Hello {currentUser.name}
             </p>
-            <p className="txt--title" id="memberToGive">
-                You are making gift for:
+            <p>
+                You are making gift for: {currentUser.drawnMemberName}
             </p>
-            <button className="btn--draw" onClick={()=>{
-                console.log(eventData.draw(username) )
-            }}>
-                Draw!
-            </button>
-            <button className="btn">
+
+            {
+                currentUser.drawnMemberName.length < 1 && 
+                (<button className="btn--draw" 
+                    onClick={updateEvent}>
+                        Draw!
+                </button>)
+            }
+            <button className="btn--draw">
                 Add your wishlist
             </button>
         </section>
-        <section className="party__info">
-            <strong className="txt--title">Event details</strong>
+        <section className="info__cart">
+            <p className="txt--title">Event details</p>
             <strong>Event: {eventData.name} </strong>
             <p>Max gift price:<strong>{eventData.maxPrice}$</strong></p>
+            <span>Event will take place at: {eventDate}</span>
         </section>
     </section>
   )

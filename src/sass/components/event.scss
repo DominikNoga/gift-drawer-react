@@ -28,34 +28,47 @@ header{
         width: 100%;
         justify-content: space-between;
     }
-    .party__info{
-        background-color: colors.$lightGray;
-        padding:1em 3em;
-        display: flex;
-        flex-direction: column;
+    .info__cart{
+        padding: 1em;
+        border-radius: 1em;
+        box-shadow: 0 0 1em rgba(0,0,0, .3);
+        font-size: 18px;
     }
-    #event__members{
-        display: flex;
-        flex-direction: column;
-        gap: 2em;
-        width: 100%;
+    .event__members{
+        border-top: dotted 4px colors.$bgColor;
+        display: grid;
+        grid-template-columns:repeat(3, 1fr) ;
+        width: 90%;
+        gap: 1em;
+        padding: 1em 0;
+        justify-items: center;
+        
     }
     .member{
-        padding:.5em 1em;
-        // background-color: colors.$lightGray;
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-        justify-items: center;
-    }
-    .member--header{
-        @extend .member;
+        display: block;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: colors.$santaHat;
+        color: white;
         font-weight: bold;
-        border-bottom: dotted 4px colors.$bgColor;
+        font-size: 22px;
+        width: 6em;
+        height: 6em;
+        display: flex;
+        flex-direction: column;
+        gap:.5em;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1em;
+        text-decoration: none;
+        transition: transform .3s;
+        will-change: transform;
     }
-    .item--left{
-        justify-self: start;
+    .member:hover{
+        transform: scale(.95);
     }
-    .item--right{
-        justify-self: end;
+    @media screen and (max-width:700px) {
+        .event__members{
+            grid-template-columns:repeat(2, 1fr) ;
+        }
     }
 }

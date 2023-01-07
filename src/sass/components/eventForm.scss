@@ -2,9 +2,11 @@
 .createEvent{
     width: 100%;
     height: 100vh;
-    background-image: url("../img/bg__giftBlue.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background: {
+        image:  url("../img/bg__giftBlue.jpg");
+        size: 100% 100vh;
+        repeat:no-repeat;
+    };
     display: flex;
     justify-content: center;
     align-items: center;

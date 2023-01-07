@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {useNavigate} from 'react-router-dom'
 import formatDate from "../functions/formatDate";
+import PartyMember from "../classes/PartyMember";
 function CreateEvent() {
   const urlEvents = "http://localhost:8000/events"
   const name = sessionStorage.getItem("eventName")
@@ -27,7 +28,7 @@ function CreateEvent() {
   }
   const changeMember = (e,i) =>{
     const newMembers = [...formData.members]
-    newMembers[i] = e.target.value
+    newMembers[i] = new PartyMember(e.target.value)
     setFormData((prevState) =>({
         ...prevState,
         members: [...newMembers]       
@@ -37,11 +38,12 @@ function CreateEvent() {
   const handleSubmit = (e) =>{
     e.preventDefault()
     const event = {
-        "eventName": formData.eventName,
+        "name": formData.eventName,
         "maxPrice": formData.maxPrice,
-        "eventDate": formData.eventDate,
+        "date": formData.eventDate,
         "password": formData.password,
         "members": formData.members,
+        "membersToDraw": formData.members,
         "id": id
     }
     const options = {
@@ -121,7 +123,7 @@ function CreateEvent() {
                           className="memberName"
                           required 
                           placeholder="Participant name..."
-                          value={member}
+                          value={member.name}
                           onChange={(e)=>{
                             changeMember(e,i)
                           }}

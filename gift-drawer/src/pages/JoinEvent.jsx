@@ -22,9 +22,10 @@ function JoinEvent() {
       .then(res => res.json())
       .then(events => {
         const event = events.find(event => {
+          const names = event.members.map(member => member.name);
             if (
                 event.id === Number(formData.id) && 
-                event.members.includes(formData.username) && 
+                names.includes(formData.username) && 
                 event.password === formData.password
                ) 
                 return true;

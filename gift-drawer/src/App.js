@@ -13,6 +13,7 @@ function App() {
         <Route path="/event" element={<Event/>}/>
       </Routes>
     </Router>
+    
   );
 }
 

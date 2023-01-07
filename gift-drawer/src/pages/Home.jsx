@@ -43,10 +43,8 @@ function Home() {
             </section>
         </header>
         <UsingInstruction/>
+        <footer className="footer">Merry X-mas !!</footer>    
     </main>
-    <footer className="footer">
-        
-    </footer>
     </>
   )
 }

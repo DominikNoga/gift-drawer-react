@@ -1,31 +1,34 @@
 {
   "events": [
     {
-      "eventName": "Mikolajki 2022",
-      "maxPrice": 50,
-      "eventDate": "2023-01-04T22:09",
-      "password": "haslo",
-      "password2": "haslo",
-      "members": [
-        "adi",
-        "tomek",
-        "arek"
-      ],
-      "id": 1672780203604
-    },
-    {
-      "eventName": "Mikolajki",
-      "maxPrice": "150",
-      "eventDate": "2023-01-20T22:43",
+      "name": "Mikolajki",
+      "date": "2023-01-28T22:48",
+      "maxPrice": "100",
       "password": "haslo",
       "members": [
-        "Zuzka",
-        "Domin",
-        "Patryk",
-        "Angi",
-        "Bartas"
+        {
+          "name": "Zuzka",
+          "drawnMemberName": "Angi"
+        },
+        {
+          "name": "Angi",
+          "drawnMemberName": "Patryk"
+        },
+        {
+          "name": "Patryk",
+          "drawnMemberName": "Bartas"
+        },
+        {
+          "name": "Bartas",
+          "drawnMemberName": "Domin"
+        },
+        {
+          "name": "Domin",
+          "drawnMemberName": "Zuzka"
+        }
       ],
-      "id": 1672782274606
+      "membersToDraw": [],
+      "id": 1672956064062
     }
   ]
 }

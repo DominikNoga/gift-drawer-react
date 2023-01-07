@@ -1,6 +1,10 @@
 @use "../abstracts/colors" as colors;
 .loadingWindow{
-    background-color: rgb(255, 255, 255);
+    background: {
+        image:  url("../img/bg__giftBlue.jpg");
+        size: 100% 100vh;
+        repeat:no-repeat;
+    };
     z-index: 10;
     position: fixed;
     width: 100%;
@@ -8,24 +12,57 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    .loader{
-        border-radius: 50%;
-        border:solid 5px transparent ;
-        border-bottom-color: colors.$bgColor;
-        border-top-color: colors.$santaHat;
-        height: 4em;
-        width: 4em;
-        animation: spinCircle 1s both linear infinite;
-        transform: translateY(-100%);
+    font-size:25px;
+    font-weight: 400;
+    .result{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap:.5em;
     }
-    .chosenUser{
-        position: absolute;
-        top:50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        display: none;
+    .dots{
+        float: right;
+        display: flex;
+        flex-direction: row;
+        gap:.5em;
+        .dot{
+            background-color: rgb(48, 44, 44);
+            background-color: colors.$santaHat;
+            height: .5em;
+            width: .5em;
+            border-radius: 50%;
+            animation: dots .9s ease-out infinite both;
+            &:nth-child(2){
+                animation: dots .9s .05s ease-out infinite both;
+            }
+            &:nth-child(3){
+                animation: dots .9s .1s ease-out infinite both;   
+            }
+        }
+    }
+    .drawingResult{
+        background-color: colors.$santaHat;
+        color:white;
+        padding: .5em;
+        border-radius: 1em;
     }
 }
+@keyframes dots {
+    0%{
+        transform: translateY(0);
+        // opacity: .5;
+    }
+    50%{
+        transform: translateY(-15px);
+        // opacity: 1;
+    }
+    100%{
+        transform: translateY(0);
+        // opacity: .5;
+    }
+
+}
+
 @keyframes spinCircle {
     from{
         transform: rotate(0);

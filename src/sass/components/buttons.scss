@@ -2,7 +2,7 @@
 .btn{
     border-radius: 2em;
     color:inherit;
-    transition: opacity .3s;
+    transition: opacity .3s, transform .3s; 
     padding:.6em 1em;
     color:white;
     font-weight: bold;
@@ -10,7 +10,8 @@
     background-color: colors.$santaHat;
     &:hover{
         cursor: pointer;
-        opacity: .8;
+        opacity: .95;
+        transform: scale(.95);
     }
 }
 .btn--important{
@@ -28,8 +29,12 @@
 .btn--draw{
     @extend .btn;
     background-color: rgb(35, 158, 35);
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
+}
+.btn--list{
+    @extend .btn--draw;
+    background-color: colors.$santaHat
 }
 .btn--edit{
     @extend .btn;

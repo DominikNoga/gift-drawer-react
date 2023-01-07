@@ -11,19 +11,20 @@ a {
   color: inherit;
 }
 
-.btn, .btn--edit, .btn--draw, .btn--form, .btn--important, .header .insideBtn {
+.btn, .btn--edit, .btn--draw, .btn--list, .btn--form, .btn--important, .header .insideBtn {
   border-radius: 2em;
   color: inherit;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
   padding: 0.6em 1em;
   color: white;
   font-weight: bold;
   border: none;
   background-color: #db1c39;
 }
-.btn:hover, .btn--edit:hover, .btn--draw:hover, .btn--form:hover, .btn--important:hover, .header .insideBtn:hover {
+.btn:hover, .btn--edit:hover, .btn--draw:hover, .btn--list:hover, .btn--form:hover, .btn--important:hover, .header .insideBtn:hover {
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 0.95;
+  transform: scale(0.95);
 }
 
 .btn--important, .header .insideBtn {
@@ -38,10 +39,14 @@ a {
   font-weight: bold;
 }
 
-.btn--draw {
+.btn--draw, .btn--list {
   background-color: rgb(35, 158, 35);
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
+}
+
+.btn--list {
+  background-color: #db1c39;
 }
 
 .btn--edit {
@@ -216,19 +221,22 @@ a {
 }
 
 .footer {
-  background-color: rgb(135, 199, 227);
+  background-color: rgb(26, 26, 26);
   color: white;
-  margin-top: 1em;
-  padding: 1em 0;
+  margin-top: 2em;
+  padding: 2em 0;
   text-align: center;
+  width: 100%;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .createEvent {
   width: 100%;
   height: 100vh;
   background-image: url("../img/bg__giftBlue.jpg");
+  background-size: 100% 100vh;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -297,7 +305,7 @@ a {
 }
 
 header {
-  background-color: rgb(135, 199, 227);
+  background-color: rgb(26, 26, 26);
   padding: 2em 0;
   color: white;
   text-align: center;
@@ -325,37 +333,53 @@ header .header__link {
   width: 100%;
   justify-content: space-between;
 }
-.event__container .party__info {
-  background-color: rgb(250, 239, 239);
-  padding: 1em 3em;
-  display: flex;
-  flex-direction: column;
+.event__container .info__cart {
+  padding: 1em;
+  border-radius: 1em;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
+  font-size: 18px;
 }
-.event__container #event__members {
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-  width: 100%;
-}
-.event__container .member, .event__container .member--header {
-  padding: 0.5em 1em;
+.event__container .event__members {
+  border-top: dotted 4px rgb(26, 26, 26);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  width: 90%;
+  gap: 1em;
+  padding: 1em 0;
   justify-items: center;
 }
-.event__container .member--header {
+.event__container .member {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #db1c39;
+  color: white;
   font-weight: bold;
-  border-bottom: dotted 4px rgb(135, 199, 227);
+  font-size: 22px;
+  width: 6em;
+  height: 6em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1em;
+  text-decoration: none;
+  transition: transform 0.3s;
+  will-change: transform;
 }
-.event__container .item--left {
-  justify-self: start;
+.event__container .member:hover {
+  transform: scale(0.95);
 }
-.event__container .item--right {
-  justify-self: end;
+@media screen and (max-width: 700px) {
+  .event__container .event__members {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .loadingWindow {
-  background-color: rgb(255, 255, 255);
+  background-image: url("../img/bg__giftBlue.jpg");
+  background-size: 100% 100vh;
+  background-repeat: no-repeat;
   z-index: 10;
   position: fixed;
   width: 100%;
@@ -363,25 +387,53 @@ header .header__link {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 25px;
+  font-weight: 400;
 }
-.loadingWindow .loader {
+.loadingWindow .result {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5em;
+}
+.loadingWindow .dots {
+  float: right;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+.loadingWindow .dots .dot {
+  background-color: rgb(48, 44, 44);
+  background-color: #db1c39;
+  height: 0.5em;
+  width: 0.5em;
   border-radius: 50%;
-  border: solid 5px transparent;
-  border-bottom-color: rgb(135, 199, 227);
-  border-top-color: #db1c39;
-  height: 4em;
-  width: 4em;
-  animation: spinCircle 1s both linear infinite;
-  transform: translateY(-100%);
+  animation: dots 0.9s ease-out infinite both;
 }
-.loadingWindow .chosenUser {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: none;
+.loadingWindow .dots .dot:nth-child(2) {
+  animation: dots 0.9s 0.05s ease-out infinite both;
+}
+.loadingWindow .dots .dot:nth-child(3) {
+  animation: dots 0.9s 0.1s ease-out infinite both;
+}
+.loadingWindow .drawingResult {
+  background-color: #db1c39;
+  color: white;
+  padding: 0.5em;
+  border-radius: 1em;
 }
 
+@keyframes dots {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 @keyframes spinCircle {
   from {
     transform: rotate(0);
