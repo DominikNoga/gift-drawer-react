@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function EventInfo(props) {
     const eventData = props.eventData;
     const currentUser = props.currentUser;  
@@ -6,12 +8,15 @@ function EventInfo(props) {
     
   return (
     <section className="event__info">
-        <section className="info__cart">
+        <section className="info__cart--welcome">
             <p className="txt--title">
                 Hello {currentUser.name}
             </p>
             <p>
-                You are making gift for: {currentUser.drawnMemberName}
+                You are making gift for: 
+                <Link to={`/wishlist/${currentUser.drawnMemberName}`} title={`see ${currentUser.drawnMemberName} wishlist`}>
+                    <strong>{currentUser.drawnMemberName}</strong>
+                </Link>
             </p>
 
             {
@@ -21,9 +26,9 @@ function EventInfo(props) {
                         Draw!
                 </button>)
             }
-            <button className="btn--draw">
-                Add your wishlist
-            </button>
+            <Link to={`/wishlist/${currentUser.name}`}>
+                <button className="btn--draw">Add your wishlist</button>
+            </Link>
         </section>
         <section className="info__cart">
             <p className="txt--title">Event details</p>

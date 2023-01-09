@@ -5,3 +5,10 @@
 @use 'components/eventForm';
 @use 'components/event';
 @use 'components/loadingWindow';
+@use 'components/wishlist';
+a{
+    text-decoration: none;
+}
+*{
+    box-sizing: border-box;
+}

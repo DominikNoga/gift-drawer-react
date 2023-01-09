@@ -13,6 +13,17 @@ header{
         font-weight: bold;
     }
 }
+.info__cart{
+    padding: 1em;
+    border-radius: 1em;
+    box-shadow: 0 0 1em rgba(0,0,0, .3);
+    background-color: white;
+    font-size: 18px;
+}
+.info__cart--welcome{
+    @extend .info__cart;
+    
+}
 .event__container{
     display: flex;
     flex-direction: column;
@@ -28,12 +39,7 @@ header{
         width: 100%;
         justify-content: space-between;
     }
-    .info__cart{
-        padding: 1em;
-        border-radius: 1em;
-        box-shadow: 0 0 1em rgba(0,0,0, .3);
-        font-size: 18px;
-    }
+    
     .event__members{
         border-top: dotted 4px colors.$bgColor;
         display: grid;
@@ -69,6 +75,22 @@ header{
     @media screen and (max-width:700px) {
         .event__members{
             grid-template-columns:repeat(2, 1fr) ;
+        }
+    }
+    @media screen and (max-width:1000px) {
+        .event__info{
+            flex-direction: column;
+            justify-content: center;
+            gap: 1em;
+        }
+        .info__cart--welcome{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .btn--draw{
+            font-size: 18px;
         }
     }
 }

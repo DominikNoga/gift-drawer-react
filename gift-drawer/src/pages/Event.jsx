@@ -11,6 +11,7 @@ function Event() {
     const {eventData, currentUser} = useFetchEvent(urlEvents, username);
     const [isLoading, setIsLoading] = useState(false);
     const [userChosen,setUserChosen] = useState(false);
+    
     const updateEvent = async () =>{
       const baseUrl = `http://localhost:8000/events`
       eventData.draw(currentUser);
@@ -26,7 +27,7 @@ function Event() {
         setIsLoading(false);
         setUserChosen(true)
         setTimeout(() =>{
-          setUserChosen(false)
+          setUserChosen(false);
         },3000)
       }, 3000)
   }

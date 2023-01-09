@@ -21,11 +21,19 @@ const update = async (url, object) =>{
         body: JSON.stringify(object)
     })
 }
-
+const deleteReq = async (url) =>{
+    fetch(url,{
+        method: 'DELETE',
+        headers:{
+            'Content-Type': 'application/json'
+        }
+    })
+}
 const ApiFunctions = {
     post:post,
     read:read,
-    update:update
+    update:update,
+    delete:deleteReq
 }
 
 export default ApiFunctions;

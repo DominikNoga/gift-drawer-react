@@ -8,23 +8,28 @@
       "members": [
         {
           "name": "Zuzka",
-          "drawnMemberName": "Angi"
+          "drawnMemberName": "Angi",
+          "wishlist": []
         },
         {
           "name": "Angi",
-          "drawnMemberName": "Patryk"
+          "drawnMemberName": "Patryk",
+          "wishlist": []
         },
         {
           "name": "Patryk",
-          "drawnMemberName": "Bartas"
+          "drawnMemberName": "Bartas",
+          "wishlist": []
         },
         {
           "name": "Bartas",
-          "drawnMemberName": "Domin"
+          "drawnMemberName": "Domin",
+          "wishlist": []
         },
         {
           "name": "Domin",
-          "drawnMemberName": "Zuzka"
+          "drawnMemberName": "Zuzka",
+          "wishlist": []
         }
       ],
       "membersToDraw": [],

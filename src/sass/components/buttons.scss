@@ -28,7 +28,7 @@
 }
 .btn--draw{
     @extend .btn;
-    background-color: rgb(35, 158, 35);
+    background-color: colors.$memberBg;
     font-size: 20px;
     font-weight: bold;
 }
@@ -45,6 +45,7 @@
     width: 1em;
     height: 1em;
     padding:.5em;
+    border:none;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -52,6 +53,7 @@
     font-weight: bold;
     font-size: 20px;
     background-color: colors.$santaHat;
+    color:white;
     &:hover{
         cursor: pointer;
         opacity: .8;
