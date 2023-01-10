@@ -23,7 +23,7 @@ function Wishlist() {
                 <FontAwesomeIcon icon={solid("backward")}/>
             </Link> 
             {currentUser.name === username && (<CurrentUserWishlist id={id} user={currentUser}/>)}
-            {otherUser && (<OtherUserWishlist user={otherUser}/>)}
+            {otherUser && (<OtherUserWishlist user={otherUser} id={id}/>)}
             <footer className="footer">Merry X-mas !!</footer>                
         </>
     )

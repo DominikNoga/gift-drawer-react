@@ -1,33 +1,36 @@
+import { useEffect } from "react";
 import { useState } from "react"
 import ApiFunctions from "../functions/apiFunctions";
+import GiftList from "./GiftList";
 
 function CurrentUserWishlist({user, id}) {
     const url = `http://localhost:8000/events/${id}`;
-    const [wishes, setWishes] = useState([]);    
+    const [wishes, setWishes] = useState(user.wishlist);    
     const [newWish, setNewWish] = useState({
         description:"",
-        links: [""]
+        links: [""],
+        bought: false
     });
-    const updateWishes = () =>{
-        setWishes(prevWishes => [
-                ...prevWishes,
-                newWish
-            ]
-        )
-    }
-    async function addWish(){
-        updateWishes();
+
+    const addWish = async(e) =>{
+        e.preventDefault();
         const currentEvent = await ApiFunctions.read(url);
         currentEvent.members.forEach(member =>{
             if(member.name === user.name)
-                member.wishlist = wishes
+                member.wishlist.push(newWish)
         })
         await ApiFunctions.update(url, currentEvent)
+        setWishes(prevWishes => [
+            ...prevWishes,
+            newWish
+        ])
+        setNewWish({
+            description:"",
+            links: [""],
+            bought: false
+        })
     }
-    const addMoreLinks = () =>{
-        if(newWish.links.length >= 4)
-            return
-        
+    const addMoreLinks = () =>{ 
         setNewWish(prevWish =>{
             return {
                 ...prevWish,
@@ -43,47 +46,74 @@ function CurrentUserWishlist({user, id}) {
             }
         })
     }
-    const deleteWish = () =>{
-
+    const deleteWish = async (index) =>{
+        const currentEvent = await ApiFunctions.read(url);
+        let newWihslist = [];
+        currentEvent.members.forEach(member =>{
+            if(member.name === user.name){
+                member.wishlist = member.wishlist.slice(0, index)
+                .concat(member.wishlist.slice(index + 1))      
+                newWihslist = member.wishlist
+            }
+        })
+        await ApiFunctions.update(url, currentEvent)
+        setWishes(newWihslist)
     }
     return (
         <main className="main__wishlist">
-            <section className="list">
-                <p className="txt--title">
-                    Add wishes and let your friends fulfill them
-                </p>
-                <form onSubmit={addWish} className="wish__form">
-                    <input type="text" className="input__wish" placeholder="Wish description" required/>
-                    <div className="link__inputs">
-                        {
-                            newWish.links.map((link, i) =>(
-                                <input key={i} type="text" className="input__wish" placeholder="Add link to your gift"/>
-                            ))   
+            <p className="txt--title">
+                Add wishes and let your friends fulfill them
+            </p>
+            <form onSubmit={addWish} className="wish__form">
+                <input 
+                    type="text" 
+                    className="input__wish" 
+                    placeholder="Wish description" 
+                    value={newWish.description}
+                    onChange={
+                        e => {
+                            setNewWish(prevWish =>({
+                                ...prevWish,
+                                description:e.target.value
+                            }))
                         }
-                        <div onClick={addMoreLinks} className="btn--circle" title="Add more links">+</div>
-                        {
-                            newWish.links.length > 1 && <div onClick={cutLink} className="btn--circle" title="Add fewer links">-</div>
-                        }
-                    </div>
-                    
-                    <button className="btn">Add wish</button>
-                </form>
-                <section className="wishes">
-                    {
-                        wishes.map((wish, i) =>(
-                            <div className={i%2 === 0 ? "wish--white" : "wish--gray"} key={i}>
-                                <span className="wish__description">{wish.description}</span>
-                                <span className="wish__links">
-                                    {wish.links.map((link, i) =>(
-                                        <span key={i} className="link"><a target="_blank" href={link}>Link</a></span>
-                                    ))}
-                                </span>
-                                <button onClick={deleteWish} title={"delete this wish"} className="btn--circle">x</button>
-                            </div>
-                        ))
                     }
-                </section>
-            </section>
+                    required
+                />
+                <div className="link__inputs">
+                    {
+                        newWish.links.map((link, i) =>(
+                            <input 
+                                key={i} 
+                                type="text" 
+                                className="input__wish" 
+                                placeholder="Add link to your gift"
+                                value={link}
+                                onChange={
+                                    e =>{
+                                        const links = newWish.links;
+                                        links[i] = e.target.value;
+                                        setNewWish(prevWish =>({
+                                            ...prevWish,
+                                            links:links
+                                        }))
+                                    }
+                                }
+                            />
+                        ))   
+                    }
+                    {
+                        newWish.links.length < 4 &&
+                        <div onClick={addMoreLinks} className="btn--circle" title="Add more links">+</div>
+                    }
+                    {
+                        newWish.links.length > 1 && <div onClick={cutLink} className="btn--circle" title="Add fewer links">-</div>
+                    }
+                </div>
+                
+                <button className="btn">Add wish</button>
+            </form>
+            <GiftList wishes={wishes} wishFuction={deleteWish} other={false} />
         </main>
     )
 }

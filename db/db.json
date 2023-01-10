@@ -19,7 +19,30 @@
         {
           "name": "Patryk",
           "drawnMemberName": "Bartas",
-          "wishlist": []
+          "wishlist": [
+            {
+              "description": "karabin",
+              "links": [
+                "karabiny.pl"
+              ],
+              "bought": false
+            },
+            {
+              "description": "mapa wejcherowa",
+              "links": [
+                "mapa",
+                "azaa"
+              ],
+              "bought": true
+            },
+            {
+              "description": "Specjal",
+              "links": [
+                "https://madeinkaszebe.com.pl/piwo-specjal-0-5l-b"
+              ],
+              "bought": false
+            }
+          ]
         },
         {
           "name": "Bartas",
@@ -29,7 +52,36 @@
         {
           "name": "Domin",
           "drawnMemberName": "Zuzka",
-          "wishlist": []
+          "wishlist": [
+            {
+              "description": "bike",
+              "links": [
+                "https://www.centrumrowerowe.pl/rower-mtb-kross-hexagon-5-0-29-pd27764/?v_Id=176194&gclid=CjwKCAiA8OmdBhAgEiwAShr40zTnmBpmH3d7mKDbqgLEoaHb0kEO4qTLqvDjGem79LVnguIDwLUdzRoC60kQAvD_BwE"
+              ],
+              "bought": true
+            },
+            {
+              "description": "t-shirt",
+              "links": [
+                "\"https://pl.tommy.com/t-shirt-z-okr%C4%85g%C5%82ym-dekoltem-i-logo-um0um01434mbp?utm_source=google&utm_medium=organic&utm_campaign=pl_free-cpc-shopping&cmpid=ch:cpc|so:google|ca:|cr:|lb:18137678861|ag:|pi:&gclid=CjwKCAiA8OmdBhAgEiwAShr40yKA_JHweDrg4Ap5csM1p1QlCdD_879ZL4rgO8-XaPRBLJ_A337rwhoCp6kQAvD_BwE&gclsrc=aw.ds"
+              ],
+              "bought": true
+            },
+            {
+              "description": "lebron james shirt",
+              "links": [
+                "https://sk.pl"
+              ],
+              "bought": false
+            },
+            {
+              "description": "lalal",
+              "links": [
+                ""
+              ],
+              "bought": false
+            }
+          ]
         }
       ],
       "membersToDraw": [],
