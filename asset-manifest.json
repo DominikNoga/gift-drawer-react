@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/gift-drawer-react/static/css/main.97fde9e5.css",
+    "main.js": "/gift-drawer-react/static/js/main.145fc0ec.js",
+    "static/media/bg__giftBlue.jpg": "/gift-drawer-react/static/media/bg__giftBlue.41dcca0488ecf32cb0b4.jpg",
+    "index.html": "/gift-drawer-react/index.html",
+    "main.97fde9e5.css.map": "/gift-drawer-react/static/css/main.97fde9e5.css.map",
+    "main.145fc0ec.js.map": "/gift-drawer-react/static/js/main.145fc0ec.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.97fde9e5.css",
+    "static/js/main.145fc0ec.js"
+  ]
+}
