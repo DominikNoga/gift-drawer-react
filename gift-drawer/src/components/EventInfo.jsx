@@ -18,7 +18,6 @@ function EventInfo(props) {
                     <strong>{currentUser.drawnMemberName}</strong>
                 </Link>
             </p>
-
             {
                 currentUser.drawnMemberName.length < 1 && 
                 (<button className="btn--draw" 

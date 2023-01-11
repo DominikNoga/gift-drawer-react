@@ -4,11 +4,11 @@ function GiftList({wishes, wishFuction, other}) {
             {
                 wishes.map((wish, i) =>(
                    <div className={i%2 === 0 ? "wish--white" : "wish--gray"} key={i}>
-                        {other && wish.bought && <span className='line'></span>}
+                        {other && wish.bought && <div className='line'></div>}
                         <span className="wish__description">{wish.description}</span>
                         <span className="wish__links">
                             {wish.links.map((link, i) =>(
-                                <span key={i} className="link"><a target="_blank" href={link}>Link</a></span>
+                                link.length > 0 && <span key={i} className="link"><a rel="noreferrer" target="_blank" href={link}>Link</a></span>
                             ))}
                         </span>
                         <button onClick={() => {wishFuction(i)}} title={"delete this wish"} className="btn--circle">x</button>

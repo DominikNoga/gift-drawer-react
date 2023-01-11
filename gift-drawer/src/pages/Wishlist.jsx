@@ -5,10 +5,10 @@ import OtherUserWishlist from '../components/OtherUserWishlist';
 import useFetchEvent from '../customHooks/useFetchEvent';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+import { solid} from '@fortawesome/fontawesome-svg-core/import.macro'
 function Wishlist() {
     const baseUrl = `http://localhost:8000/events`
-    const {id, username:currentName} = JSON.parse(sessionStorage.getItem('user'));
+    const {id, username:currentName} = JSON.parse(localStorage.getItem('user'));
     const {username} = useParams();
     const {eventData, currentUser} = useFetchEvent(`${baseUrl}/${id}`, currentName);
     let otherUser;

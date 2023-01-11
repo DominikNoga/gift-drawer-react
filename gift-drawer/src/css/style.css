@@ -1,16 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-}
-
 .btn, .btn--edit, .btn--draw, .btn--list, .btn--form, .btn--important, .header .insideBtn {
   border-radius: 2em;
   color: inherit;
@@ -132,6 +119,11 @@ a {
   background-color: #db1c39;
   transform: translate(-2%, -62%);
   border: none;
+  transition: opacity 0.3s;
+}
+.header .insideBtn:hover {
+  transform: translate(-2%, -62%);
+  opacity: 0.9;
 }
 .header .joinEventLink {
   display: block;
@@ -151,38 +143,45 @@ a {
   margin: auto;
   font-size: 20px;
 }
-.about .main__article {
+
+.main__article {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.about p {
+
+p {
   display: block;
 }
-.about .article__title {
+
+.article__title {
   font-size: 2.2em;
 }
-.about .article__subtitle {
+
+.article__subtitle {
   font-size: 18px;
   width: 70%;
 }
-.about .instruction {
+
+.instruction {
   text-align: start;
   position: relative;
   overflow: hidden;
 }
-.about .instruction__list {
+
+.instruction__list {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-.about .instruction__point {
+
+.instruction__point {
   margin-left: 5em;
   width: 70%;
   position: relative;
 }
-.about .instruction__point::after {
+.instruction__point::after {
   content: "";
   display: block;
   width: 8px;
@@ -195,7 +194,7 @@ a {
   left: -1.2em;
   z-index: 1;
 }
-.about .instruction__point::before {
+.instruction__point::before {
   content: "";
   display: block;
   width: 1px;
@@ -205,23 +204,26 @@ a {
   left: -0.9em;
   height: calc(100% + 1.5em);
 }
-.about .instruction__point:last-child::before {
+.instruction__point:last-child::before {
   display: none;
 }
-.about .instruction__point--title {
+
+.instruction__point--title {
   margin-bottom: 0.5em;
   font-size: 26px;
 }
-.about .line {
-  width: 1px;
-  background-color: rgb(136, 136, 136);
-  position: absolute;
-  min-height: 390px;
-  top: 35px;
-  left: calc(6em + 2px);
-  z-index: 0;
-}
 
+@media screen and (max-width: 768px) {
+  .about {
+    width: 90%;
+  }
+  .instruction__point {
+    width: 85%;
+  }
+  .article__subtitle {
+    width: 85%;
+  }
+}
 .footer {
   background-color: rgb(26, 26, 26);
   color: white;
@@ -303,7 +305,6 @@ a {
   font-family: inherit;
   font-size: 30px;
   font-weight: bold;
-  margin-bottom: 0.4em;
 }
 
 header {
@@ -336,14 +337,16 @@ header .header__link {
   margin-bottom: 3em;
   margin: auto;
 }
-.event__container .event__info {
+
+.event__info {
   display: flex;
   align-self: flex-end;
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
 }
-.event__container .event__members {
+
+.event__members {
   border-top: dotted 4px rgb(26, 26, 26);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -352,7 +355,8 @@ header .header__link {
   padding: 1em 0;
   justify-items: center;
 }
-.event__container .member {
+
+.member {
   display: block;
   font-family: Arial, Helvetica, sans-serif;
   background-color: #db1c39;
@@ -371,31 +375,40 @@ header .header__link {
   transition: transform 0.3s;
   will-change: transform;
 }
-.event__container .member:hover {
+
+.member:hover {
   transform: scale(0.95);
 }
+
 @media screen and (max-width: 700px) {
-  .event__container .event__members {
+  .event__members {
     grid-template-columns: repeat(2, 1fr);
   }
-}
-@media screen and (max-width: 1000px) {
-  .event__container .event__info {
+  .event__info {
     flex-direction: column;
     justify-content: center;
     gap: 1em;
   }
-  .event__container .info__cart--welcome {
+  .info__cart--welcome {
+    text-align: left;
+  }
+}
+@media screen and (max-width: 1000px) and (min-width: 700px) {
+  .event__info {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+  }
+  .info__cart--welcome {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
   }
-  .event__container .btn--draw {
+  .btn--draw {
     font-size: 18px;
   }
 }
-
 .loadingWindow {
   background-image: url("../img/bg__giftBlue.jpg");
   background-size: 100% 100vh;
@@ -480,7 +493,7 @@ body {
   position: absolute;
   background-color: #333;
   width: 100%;
-  height: 1px;
+  padding: 0.5px;
   z-index: 2;
   top: 50%;
   transform: translateY(-50%);
@@ -492,14 +505,12 @@ body {
   min-width: 50%;
   width: fit-content;
 }
+.main__wishlist .txt--title, .main__wishlist--other .txt--title {
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
+}
 
 .main__wishlist--other {
   min-height: 60vh;
-}
-
-.txt--title {
-  margin-bottom: 1em;
-  font-family: "Sofia Sans Extra Condensed", sans-serif;
 }
 
 .input__wish {
@@ -575,10 +586,16 @@ body {
   transform: scale(1.05);
 }
 
-a {
-  text-decoration: none;
-}
-
 * {
   box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }

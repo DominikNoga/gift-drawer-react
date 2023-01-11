@@ -33,7 +33,7 @@ function JoinEvent() {
         })
         if(event){
             const user = {id:formData.id, username:formData.username}
-            sessionStorage.setItem("user", JSON.stringify(user))
+            localStorage.setItem("user", JSON.stringify(user))
             navigate("/event")
         }
       })

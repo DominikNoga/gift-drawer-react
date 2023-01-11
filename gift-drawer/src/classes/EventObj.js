@@ -20,6 +20,14 @@ export default class EventObj{
     }
     getRandomMember(currentUser){
         let randomMember;
+        if(this.membersToDraw.length === 2 && !this.membersToDraw.includes(currentUser)){
+            for(let member of this.membersToDraw){
+                if(member.drawnMemberName === ""){
+                    randomMember = member;
+                    return randomMember;
+                }
+            }
+        }
         do {
             const randomIndex = Math.floor(Math.random()*this.membersToDraw.length);
             randomMember = this.membersToDraw[randomIndex];
@@ -30,9 +38,7 @@ export default class EventObj{
     draw(currentUser){
         const index = this.members.indexOf(currentUser);
         if(this.membersToDraw.length === 0)
-            return "No more members to draw";
-        if(this.membersToDraw.length === 1 && this.membersToDraw[0].name === currentUser.name)
-            return "No more members to draw";
+            return "no more members to draw"
         
         const randomMember = this.getRandomMember(currentUser);
         this.members[index].drawnMemberName = randomMember.name;

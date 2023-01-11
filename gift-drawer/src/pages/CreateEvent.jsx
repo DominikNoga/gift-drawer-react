@@ -56,7 +56,7 @@ function CreateEvent() {
     }
     fetch(urlEvents, options)
         .then(() =>{
-            sessionStorage.setItem("id", id)
+            localStorage.setItem("id", id)
             navigate(`/joinEvent`)
         })
   }
@@ -131,7 +131,6 @@ function CreateEvent() {
                       </li> 
                     ))
                 }
-                    
             </ol>
             <div className="btn--circle" onClick={addMember}>+</div>
             <button className="btn--form">Create Event</button>

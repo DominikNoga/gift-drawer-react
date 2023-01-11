@@ -9,7 +9,30 @@
         {
           "name": "Zuzka",
           "drawnMemberName": "Angi",
-          "wishlist": []
+          "wishlist": [
+            {
+              "description": "Mieszkanie w Gdańsku",
+              "links": [
+                "https://www.inpro.com.pl/oferta/mieszkania-i-apartamenty/gdansk?gclid=Cj0KCQiAtvSdBhD0ARIsAPf8oNnRZYJ_ITsY0_fI3rOgPpn9TWZ5YqjOGMNF-ZxS3Bs4129agvPpRgcaAu6sEALw_wcB",
+                "https://www.inpro.com.pl/oferta/mieszkania-i-apartamenty/gdansk?gclid=Cj0KCQiAtvSdBhD0ARIsAPf8oNnRZYJ_ITsY0_fI3rOgPpn9TWZ5YqjOGMNF-ZxS3Bs4129agvPpRgcaAu6sEALw_wcB"
+              ],
+              "bought": false
+            },
+            {
+              "description": "Masaż 1000 godzin",
+              "links": [
+                ""
+              ],
+              "bought": false
+            },
+            {
+              "description": "Fajna wcierka tak jak my hair tip poleca",
+              "links": [
+                "lalala"
+              ],
+              "bought": false
+            }
+          ]
         },
         {
           "name": "Angi",
@@ -25,7 +48,7 @@
               "links": [
                 "karabiny.pl"
               ],
-              "bought": false
+              "bought": true
             },
             {
               "description": "mapa wejcherowa",
@@ -33,7 +56,7 @@
                 "mapa",
                 "azaa"
               ],
-              "bought": true
+              "bought": false
             },
             {
               "description": "Specjal",
@@ -65,14 +88,14 @@
               "links": [
                 "\"https://pl.tommy.com/t-shirt-z-okr%C4%85g%C5%82ym-dekoltem-i-logo-um0um01434mbp?utm_source=google&utm_medium=organic&utm_campaign=pl_free-cpc-shopping&cmpid=ch:cpc|so:google|ca:|cr:|lb:18137678861|ag:|pi:&gclid=CjwKCAiA8OmdBhAgEiwAShr40yKA_JHweDrg4Ap5csM1p1QlCdD_879ZL4rgO8-XaPRBLJ_A337rwhoCp6kQAvD_BwE&gclsrc=aw.ds"
               ],
-              "bought": true
+              "bought": false
             },
             {
               "description": "lebron james shirt",
               "links": [
                 "https://sk.pl"
               ],
-              "bought": false
+              "bought": true
             },
             {
               "description": "lalal",
@@ -86,6 +109,41 @@
       ],
       "membersToDraw": [],
       "id": 1672956064062
+    },
+    {
+      "name": "Święta 2023",
+      "maxPrice": "200",
+      "date": "2023-12-24T15:23",
+      "password": "haslo",
+      "members": [
+        {
+          "name": "Tomek",
+          "drawnMemberName": "Andrzej",
+          "wishlist": []
+        },
+        {
+          "name": "Adi",
+          "drawnMemberName": "Tomek",
+          "wishlist": []
+        },
+        {
+          "name": "Maciek",
+          "drawnMemberName": "Adi",
+          "wishlist": []
+        },
+        {
+          "name": "Andrzej",
+          "drawnMemberName": "Eryk",
+          "wishlist": []
+        },
+        {
+          "name": "Eryk",
+          "drawnMemberName": "Maciek",
+          "wishlist": []
+        }
+      ],
+      "membersToDraw": [],
+      "id": 1673360664137
     }
   ]
 }

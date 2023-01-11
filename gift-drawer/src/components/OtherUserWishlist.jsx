@@ -1,7 +1,6 @@
 import { useState } from "react"
 import GiftList from "./GiftList";
 import ApiFunctions from "../functions/apiFunctions";
-import { useEffect } from "react";
 
 function OtherUserWishlist({user, id}) {
     const url = `http://localhost:8000/events/${id}`;
@@ -17,14 +16,13 @@ function OtherUserWishlist({user, id}) {
         await ApiFunctions.update(url, currentEvent)
         setWishes(() => [...newWishes])
     }
-    useEffect(() =>{
-        console.log("wishes updated")
-    }, [wishes])
-
     return (
         <main className="main__wishlist--other">
             <p className="txt--title">
-                Make {user.name} dreams come true with one of the gifts from this list
+                {
+                    user.wishlist.length > 0 ? (`Make ${user.name} dreams come true with one of the gifts from this list`) :
+                    (`${user.name} have not added a wishlist yet`)
+                }
             </p>
             <GiftList wishes={wishes} wishFuction={markAsBought} other={true}/>
         </main>

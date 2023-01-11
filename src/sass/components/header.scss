@@ -63,6 +63,11 @@ $mainInputHeight:3em;
         background-color: colors.$santaHat;
         transform: translate(-2%, -62%); 
         border:none;  
+        transition: opacity .3s;
+        &:hover{
+            transform: translate(-2%, -62%);
+            opacity: .9;
+        }
     }
     .joinEventLink{
         display: block;

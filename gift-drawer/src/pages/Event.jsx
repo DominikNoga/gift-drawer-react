@@ -6,7 +6,7 @@ import Spinner from '../components/Spinner';
 import useFetchEvent from '../customHooks/useFetchEvent';
 import ApiFunctions from '../functions/apiFunctions';
 function Event() {
-    const {id, username} = JSON.parse(sessionStorage.getItem('user'));
+    const {id, username} = JSON.parse(localStorage.getItem('user'));
     const urlEvents = `http://localhost:8000/events/${id}`;
     const {eventData, currentUser} = useFetchEvent(urlEvents, username);
     const [isLoading, setIsLoading] = useState(false);

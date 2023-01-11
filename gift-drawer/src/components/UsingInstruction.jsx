@@ -1,46 +1,50 @@
 function UsingInstruction() {
+    const lpar = "("
+    const ppar =")"
   return (
     <div>
       <section className="about">
             <article className="main__article">
                 <h1 className="article__title">
-                    Aplikacja powstała z myślą o tym, by ułatwić Ci zorganizowanie losowania w gronie Twoich znajomych
+                    Application was created to help you and your friends organise secret santa party
                 </h1>
                 <p className="article__subtitle">
-                    Teraz brak jednej osoby nie przeszkodzi Wam w dobraniu się na Mikołajki. 
-                    Wystarczy utworzyć wydarzenie, dodać jego uczestników wpisując ich imiona! 
-                    GiftDrawer wygeneruje dla was unikalną grupę. Wewnątrz, której każdy będzie mógł wylosować swoją parę,
-                    jak również dodać listę swoich życzeń
+                    Now absence of one person won't interrupt you during drawing.
+                    You just have to create event and add your friends by typing their names!
+                    GiftDrawer will genarate for you a unique id number.
+                    Using this number you will be able to log into your event page.
+                    Where you will be able to draw your match and add your wishlist
                 </p>
                 <section className="instruction">
                     <ul className="instruction__list">
                         <li className="instruction__point">
                             <h3 className="instruction__point--title"> 
-                                Opisz wydarzenie
+                                Give a name to your event
                             </h3>
-                            Wpisz nazwę i opis wydarzenia, które zobaczą Twoi znajomi po otrzymaniu zaproszenia do losowania.
-                            Na przykład takim tytułem może być “Mikołajki klasy 6b”, a opis “Maksymalna kwota prezentu 50zł. Nie kupujemy słodyczy!
+                            Add a name and click create
                         </li>
                         <li className="instruction__point">
                             <h3 className="instruction__point--title">
-                                Dodaj uczestników
+                                Fill the event creation form
                             </h3>
-                            Wpisz nazwy uczestników (np imię i nazwisko). Powinna to być unikalna nazwa oraz na tyle czytelna by było wiadomo o kogo chodzi.
-                            Pamiętaj by wpisać siebie jeśli bierzesz udział.
+                            Enter maximal price for the gift {lpar}it is not required{ppar} date of the party and create password.
+                            Later add members to the party by typing their names{lpar}Names must be unique{ppar}. Rembember to insert your
+                            name if you are taking part in the event
                         </li>
                         <li className="instruction__point">
                             <h3 className="instruction__point--title"> 
-                                Prześlij linki
+                                Log into your event page
                             </h3>
-                            Wyślij unilakny link uczestnika do swojego znajomego za pomocą komunikatora, którego używacie np messanger, email czy sms.
-                            Uważaj, by nie wysłać linku do niewłaściwej osoby.
+                            After the creation of the event you will be transferred to the log in page. Id number will be automatically
+                            entered. <b>Save this number because you won't be able to change or retrieve it in case of forgetting it</b>.
+                            Enter your name and password {lpar}Do not log into other user account!! If you don't want to spoil all the fun{ppar}
                         </li>
                         <li className="instruction__point">
                             <h3 className="instruction__point--title">
-                                Losuj!
+                                Draw!!
                             </h3>
-                            Po rozesłaniu linków zacznijcie losować swoją parę. Po wejściu na unikalny link zostaniesz zaproszony do losowania.
-                            Po kliknięciu w losuj wyświetli się osoba, która została przypisana do Ciebie.
+                            After logging in you will see a green button. You can click it and our system will choose random person for you.
+                            You can also add your own wishlist and check other pepole lists
                         </li>
                     </ul>
                 </section>
