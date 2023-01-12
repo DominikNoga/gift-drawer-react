@@ -2,7 +2,6 @@
   "name": "gift-drawer",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://domin13322.github.io/gift-drawer-react",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-regular-svg-icons": "^6.2.1",
@@ -11,7 +10,9 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.2.2",
     "babel-plugin-macros": "^3.1.0",
+    "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.1",
@@ -24,8 +25,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "proxy": "node src/proxySetup.js"
   },
+  "proxy": "http://localhost:5000" ,
   "eslintConfig": {
     "extends": [
       "react-app",

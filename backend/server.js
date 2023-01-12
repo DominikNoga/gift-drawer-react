@@ -10,6 +10,7 @@ connectDB();
 app.use(express.json()); // every app that uses express 
 // will go first to this middleware
 app.use(express.urlencoded({extended:false}))
+app.use(express.raw({ extended:false}))
 app.use(errorHandler)
 
 app.use('/api/events', require('./routes/events'))

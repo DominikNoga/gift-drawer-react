@@ -2,8 +2,9 @@ import { useState } from "react";
 import {useNavigate} from 'react-router-dom'
 import formatDate from "../functions/formatDate";
 import PartyMember from "../classes/PartyMember";
+// import axios from "axios";
 function CreateEvent() {
-  const urlEvents = "http://localhost:8000/events"
+  const urlEvents = "/api/events/"
   const name = sessionStorage.getItem("eventName")
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -34,7 +35,6 @@ function CreateEvent() {
         members: [...newMembers]       
     }))
   }
-  const id = Number(new Date());
   const handleSubmit = (e) =>{
     e.preventDefault()
     const event = {
@@ -43,22 +43,25 @@ function CreateEvent() {
         "date": formData.eventDate,
         "password": formData.password,
         "members": formData.members,
-        "membersToDraw": formData.members,
-        "id": id
+        "membersToDraw": formData.members
     }
     const options = {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(event)
 
     }
+    
+    // axios.post(urlEvents, event, )
     fetch(urlEvents, options)
-        .then(() =>{
-            localStorage.setItem("id", id)
-            navigate(`/joinEvent`)
-        })
+    .then(res => res.json())
+    .then(data =>{
+      localStorage.setItem("id", data._id)
+      navigate(`/joinEvent`)
+    })
+        
   }
   return (
     <section className="createEvent">

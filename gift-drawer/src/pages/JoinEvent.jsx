@@ -1,14 +1,14 @@
 import {useState} from "react"
 import {useNavigate} from 'react-router-dom'
-
+import ApiFunctions from "../functions/apiFunctions"
 function JoinEvent() {
-  const urlEvents = "http://localhost:8000/events"
-  const id = sessionStorage.getItem('id');
+  const id = localStorage.getItem('id');
+  const urlEvents = `/api/events/login`
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    id:id || "",
+    _id:id || "",
     password:"",
-    username:""
+    name:""
   })
   const onChange = (e) =>{
     setFormData((prevState) =>({
@@ -16,27 +16,17 @@ function JoinEvent() {
         [e.target.name]: e.target.value
     }))
   }
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    fetch(urlEvents)
-      .then(res => res.json())
-      .then(events => {
-        const event = events.find(event => {
-          const names = event.members.map(member => member.name);
-            if (
-                event.id === Number(formData.id) && 
-                names.includes(formData.username) && 
-                event.password === formData.password
-               ) 
-                return true;
-            return false;
-        })
-        if(event){
-            const user = {id:formData.id, username:formData.username}
-            localStorage.setItem("user", JSON.stringify(user))
-            navigate("/event")
-        }
-      })
+    const req = await ApiFunctions.post(urlEvents, formData)
+    const res = await req.json();
+    const data = await res;
+    if(data){
+      // console.log(data)
+      const eventData = {token: data.token, id: data.id, username:formData.name}
+      localStorage.setItem('eventData', JSON.stringify(eventData));
+      navigate('/event')
+    }
   }
   return (
     <section className="createEvent">
@@ -46,17 +36,17 @@ function JoinEvent() {
                 type="text" 
                 autoComplete="off" 
                 className="input--basic" 
-                name="id"
-                value={formData.id}
+                name="_id"
+                value={formData._id}
                 onChange={onChange}
                 required/>
             <label>Username</label>
             <input 
-                name="username"
+                name="name"
                 type="text" 
                 autoComplete="off" 
                 className="input--basic" 
-                value={formData.username}
+                value={formData.name}
                 onChange={onChange}
                 required
             />

@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid} from '@fortawesome/fontawesome-svg-core/import.macro'
 function Wishlist() {
-    const baseUrl = `http://localhost:8000/events`
-    const {id, username:currentName} = JSON.parse(localStorage.getItem('user'));
+    const {id, username:currentName, token} = JSON.parse(localStorage.getItem('eventData'));
+    const url = `/api/events/${id}`
     const {username} = useParams();
-    const {eventData, currentUser} = useFetchEvent(`${baseUrl}/${id}`, currentName);
+    const {eventData, currentUser} = useFetchEvent(url, currentName, token);
     let otherUser;
     if(currentUser.name !== username) {
         otherUser = eventData.members.find(member => member.name === username);

@@ -21,7 +21,7 @@ const EventSchema = mongoose.Schema({
     members:{
         type:Array
     },
-    memberToDraw:{
+    membersToDraw:{
         type:Array
     }
 })

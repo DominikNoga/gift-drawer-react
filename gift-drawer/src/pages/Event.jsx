@@ -6,23 +6,22 @@ import Spinner from '../components/Spinner';
 import useFetchEvent from '../customHooks/useFetchEvent';
 import ApiFunctions from '../functions/apiFunctions';
 function Event() {
-    const {id, username} = JSON.parse(localStorage.getItem('user'));
-    const urlEvents = `http://localhost:8000/events/${id}`;
-    const {eventData, currentUser} = useFetchEvent(urlEvents, username);
+    const {id, username, token} = JSON.parse(localStorage.getItem('eventData'));
+    const urlEvents = `/api/events/${id}`;
+    const {eventData, currentUser} = useFetchEvent(urlEvents, username, token);
     const [isLoading, setIsLoading] = useState(false);
     const [userChosen,setUserChosen] = useState(false);
     
     const updateEvent = async () =>{
-      const baseUrl = `http://localhost:8000/events`
       eventData.draw(currentUser);
       setIsLoading(true);
-      const currentEvent = await ApiFunctions.read(`${baseUrl}/${eventData.id}`);
+      const currentEvent = await ApiFunctions.read(urlEvents, token);
       const event = {
           ...currentEvent,
           membersToDraw: eventData.membersToDraw,
           members:eventData.members
       }
-      await ApiFunctions.update(`${baseUrl}/${eventData.id}`, event);
+      await ApiFunctions.update(urlEvents, event, token);
       setTimeout(() =>{
         setIsLoading(false);
         setUserChosen(true)
