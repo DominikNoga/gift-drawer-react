@@ -1,10 +1,9 @@
 import { useState } from "react"
-import ApiFunctions from "../functions/apiFunctions";
 import GiftList from "./GiftList";
+import WishlistService from "../features/wishlistService";
 
 function CurrentUserWishlist({user, id}) {
     const {token} = JSON.parse(localStorage.getItem("eventData"))
-    const url = `/api/events/${id}`;
     const [wishes, setWishes] = useState(user.wishlist);    
     const [newWish, setNewWish] = useState({
         description:"",
@@ -14,12 +13,7 @@ function CurrentUserWishlist({user, id}) {
 
     const addWish = async(e) =>{
         e.preventDefault();
-        const currentEvent = await ApiFunctions.read(url, token);
-        currentEvent.members.forEach(member =>{
-            if(member.name === user.name)
-                member.wishlist.push(newWish)
-        })
-        await ApiFunctions.update(url, currentEvent, token)
+        await WishlistService.update(id, token, user.name, [...wishes, newWish])
         setWishes(prevWishes => [
             ...prevWishes,
             newWish
@@ -47,18 +41,12 @@ function CurrentUserWishlist({user, id}) {
         })
     }
     const deleteWish = async (index) =>{
-        const currentEvent = await ApiFunctions.read(url, token);
-        let newWihslist = [];
-        currentEvent.members.forEach(member =>{
-            if(member.name === user.name){
-                member.wishlist = member.wishlist.slice(0, index)
-                .concat(member.wishlist.slice(index + 1))      
-                newWihslist = member.wishlist
-            }
-        })
-        await ApiFunctions.update(url, currentEvent, token)
+        let newWihslist = wishes.slice(0, index)
+            .concat(wishes.slice(index + 1));
+        await WishlistService.update(id, token, user.name, newWihslist);
         setWishes(newWihslist)
     }
+    
     return (
         <main className="main__wishlist">
             <p className="txt--title">

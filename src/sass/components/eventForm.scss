@@ -1,5 +1,6 @@
 @use '../abstracts/colors' as colors;
 .createEvent{
+    position: relative;
     width: 100%;
     height: 100vh;
     background: {
@@ -12,55 +13,65 @@
     align-items: center;
     min-height: 90vh;
     counter-reset: newMember;
-    .createEvent__form{
-        transform: translateY(-10%);
-        display: grid;
-        grid-template-columns: auto auto;
-        align-items: center;
-        gap:1em;
-        padding: 1em;
-        .btn--form{
-            grid-column: 1/3;
+    .link--back{
+        position: absolute;
+        left:0;
+        top:1%;
+        color:colors.$santaHat;
+        &:hover{
+            text-decoration: underline;
         }
-        .btn--circle{
-            grid-column: 2/3;
-            place-self: end;
-            margin-right: 1em;
-        }
+        font-size: 18px;
     }
-    label{
-        float: left;
-    }
-    .input--basic{
-        height: 2em;
-    }
-    .membersList{
-        list-style-type: none;
-        display:flex;
-        flex-direction: column;
+}
+.createEvent__form{
+    transform: translateY(-10%);
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    gap:1em;
+    padding: 1em;
+    .btn--form{
         grid-column: 1/3;
-        gap:.5em;
-        padding: 0;
-        margin: 0;
     }
-    #createEventBtn{
-        grid-column: 1/3;
-        width: 70%;
-        margin: auto;
-    }
-    
-    .members__item{
-        &::before{
-            counter-increment: newMember;
-            font-weight: bold;
-            content: '#' counter(newMember);
-        }
-    }
-    .memberName{
-        @extend .input--basic;
-        width: 80%;
-    }
-    #addMoreBtn{
+    .btn--circle{
         grid-column: 2/3;
+        place-self: end;
+        margin-right: 1em;
     }
+}
+label{
+    float: left;
+}
+.input--basic{
+    height: 2em;
+}
+.membersList{
+    list-style-type: none;
+    display:flex;
+    flex-direction: column;
+    grid-column: 1/3;
+    gap:.5em;
+    padding: 0;
+    margin: 0;
+}
+#createEventBtn{
+    grid-column: 1/3;
+    width: 70%;
+    margin: auto;
+}
+
+.members__item{
+    &::before{
+        counter-increment: newMember;
+        font-weight: bold;
+        content: '#' counter(newMember);
+    }
+}
+.memberName{
+    @extend .input--basic;
+    width: 80%;
+}
+#addMoreBtn{
+    grid-column: 2/3;
 }

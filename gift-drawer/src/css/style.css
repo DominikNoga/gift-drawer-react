@@ -236,6 +236,7 @@ p {
 }
 
 .createEvent {
+  position: relative;
   width: 100%;
   height: 100vh;
   background-image: url("../img/bg__giftBlue.jpg");
@@ -247,7 +248,18 @@ p {
   min-height: 90vh;
   counter-reset: newMember;
 }
-.createEvent .createEvent__form {
+.createEvent .link--back {
+  position: absolute;
+  left: 0;
+  top: 1%;
+  color: #db1c39;
+  font-size: 18px;
+}
+.createEvent .link--back:hover {
+  text-decoration: underline;
+}
+
+.createEvent__form {
   transform: translateY(-10%);
   display: grid;
   grid-template-columns: auto auto;
@@ -255,21 +267,24 @@ p {
   gap: 1em;
   padding: 1em;
 }
-.createEvent .createEvent__form .btn--form {
+.createEvent__form .btn--form {
   grid-column: 1/3;
 }
-.createEvent .createEvent__form .btn--circle {
+.createEvent__form .btn--circle {
   grid-column: 2/3;
   place-self: end;
   margin-right: 1em;
 }
-.createEvent label {
+
+label {
   float: left;
 }
-.createEvent .input--basic, .createEvent .memberName {
+
+.input--basic, .memberName {
   height: 2em;
 }
-.createEvent .membersList {
+
+.membersList {
   list-style-type: none;
   display: flex;
   flex-direction: column;
@@ -278,20 +293,24 @@ p {
   padding: 0;
   margin: 0;
 }
-.createEvent #createEventBtn {
+
+#createEventBtn {
   grid-column: 1/3;
   width: 70%;
   margin: auto;
 }
-.createEvent .members__item::before {
+
+.members__item::before {
   counter-increment: newMember;
   font-weight: bold;
   content: "#" counter(newMember);
 }
-.createEvent .memberName {
+
+.memberName {
   width: 80%;
 }
-.createEvent #addMoreBtn {
+
+#addMoreBtn {
   grid-column: 2/3;
 }
 
@@ -480,13 +499,13 @@ body {
 }
 
 .link--back {
-  font-size: 26px;
+  font-size: 15px;
   margin-left: 1em;
   transition: color 0.3s;
   will-change: color;
 }
 .link--back:hover {
-  color: #333;
+  text-decoration: underline;
 }
 
 .line {

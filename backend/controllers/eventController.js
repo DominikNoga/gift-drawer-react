@@ -23,7 +23,7 @@ const joinEvent = asyncHandler(async (req, res) => {
 
     res.status(200).send({
         id:id,
-        name:event.name,
+        name:name,
         token:generateToken(id)
     })
 

@@ -1,4 +1,5 @@
 @use '../mixins/text' as mixins;
+@use '../abstracts/colors' as colors;
 #eventTitle{
     @include mixins.setFont($family:Serif,$size: 26px, $weight:500);
 }

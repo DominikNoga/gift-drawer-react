@@ -2,9 +2,9 @@ import { useState } from "react";
 import {useNavigate} from 'react-router-dom'
 import formatDate from "../functions/formatDate";
 import PartyMember from "../classes/PartyMember";
-// import axios from "axios";
+import { Link } from "react-router-dom";
+import EventService from "../features/eventService";
 function CreateEvent() {
-  const urlEvents = "/api/events/"
   const name = sessionStorage.getItem("eventName")
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -13,7 +13,7 @@ function CreateEvent() {
     eventDate:formatDate(),
     password:"",
     password2:"",
-    members:["", "", ""]
+    members:[{name:""}, {name:""}, {name:""}]
   })
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -35,7 +35,7 @@ function CreateEvent() {
         members: [...newMembers]       
     }))
   }
-  const handleSubmit = (e) =>{
+  const handleSubmit = async (e) =>{
     e.preventDefault()
     const event = {
         "name": formData.eventName,
@@ -45,26 +45,17 @@ function CreateEvent() {
         "members": formData.members,
         "membersToDraw": formData.members
     }
-    const options = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(event)
-
-    }
-    
-    // axios.post(urlEvents, event, )
-    fetch(urlEvents, options)
-    .then(res => res.json())
-    .then(data =>{
-      localStorage.setItem("id", data._id)
-      navigate(`/joinEvent`)
-    })
-        
+   
+    try {
+      await EventService.addEvent(event)      
+      navigate("/joinEvent")
+    }catch(e) {
+      console.log(e.message);
+    }        
   }
   return (
     <section className="createEvent">
+        <Link to={"/"} className="link--back">Back to main page</Link>
         <form className="createEvent__form" onSubmit={handleSubmit}>
             <label>Event Name</label>
             <input 

@@ -1,9 +1,8 @@
 import {useState} from "react"
-import {useNavigate} from 'react-router-dom'
-import ApiFunctions from "../functions/apiFunctions"
+import {Link, useNavigate} from 'react-router-dom'
+import EventService from "../features/eventService";
 function JoinEvent() {
   const id = localStorage.getItem('id');
-  const urlEvents = `/api/events/login`
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     _id:id || "",
@@ -18,18 +17,17 @@ function JoinEvent() {
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const req = await ApiFunctions.post(urlEvents, formData)
-    const res = await req.json();
-    const data = await res;
-    if(data){
-      // console.log(data)
-      const eventData = {token: data.token, id: data.id, username:formData.name}
-      localStorage.setItem('eventData', JSON.stringify(eventData));
+    try {
+      await EventService.joinEvent(formData)
       navigate('/event')
+    } catch (error) {
+      console.log(error)
     }
+    
   }
   return (
     <section className="createEvent">
+      <Link to={"/"} className="link--back">Back to main page</Link>
         <form onSubmit={handleSubmit} className="createEvent__form">
             <label>Event ID</label>
             <input 

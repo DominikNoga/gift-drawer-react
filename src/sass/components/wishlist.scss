@@ -4,12 +4,12 @@ body{
     background-color: hsl(0, 11%, 91%);
 }
 .link--back{
-    font-size: 26px;
+    font-size: 15px;
     margin-left: 1em;
     transition: color .3s;
     will-change:color;
     &:hover{
-        color:#333;
+        text-decoration: underline;
     }
 }
 .line{
