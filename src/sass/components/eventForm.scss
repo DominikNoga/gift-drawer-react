@@ -1,13 +1,12 @@
 @use '../abstracts/colors' as colors;
 .createEvent{
-    position: relative;
     width: 100%;
     height: 100vh;
-    background: {
-        image:  url("../img/bg__giftBlue.jpg");
-        size: 100% 100vh;
-        repeat:no-repeat;
-    };
+    overflow-y: scroll;
+    text-shadow: 0 0 5px rgba(black, .3);
+    background-color: colors.$santaHat;
+    position: relative;
+    color:white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,9 +14,9 @@
     counter-reset: newMember;
     .link--back{
         position: absolute;
+        font-family: Lato;
         left:0;
         top:1%;
-        color:colors.$santaHat;
         &:hover{
             text-decoration: underline;
         }
@@ -25,14 +24,21 @@
     }
 }
 .createEvent__form{
-    transform: translateY(-10%);
+    // transform: translateY(-10%);
     display: grid;
     grid-template-columns: auto auto;
     align-items: center;
-    gap:1em;
-    padding: 1em;
+    background-color: rgb(250, 250, 250);
+    color:black;
+    text-shadow: none;
+    border-radius: 1em;
+    font-size: 18px;
+    gap:1.4em;
+    padding: 2em;
     .btn--form{
         grid-column: 1/3;
+        background-color: colors.$santaHat;
+        font-size: 16px;
     }
     .btn--circle{
         grid-column: 2/3;
@@ -44,7 +50,7 @@ label{
     float: left;
 }
 .input--basic{
-    height: 2em;
+    padding: .5em 1em;
 }
 .membersList{
     list-style-type: none;

@@ -17,7 +17,7 @@ function Wishlist() {
     
     return (
         <>
-            <header><Link to="/" title='go back to main page' className='header__link'>GiftDrawer</Link></header>
+            <header><Link to="/" title='go back to main page' className='header__link'>GiftDrawer <FontAwesomeIcon icon={solid("gift")}/></Link></header>
             <Link className='link--back' to={"/event"} title="Go back to event page">
                 <FontAwesomeIcon icon={solid("caret-left")}/> back to event page
             </Link> 

@@ -66,6 +66,8 @@ function CreateEvent() {
     }
     return (
       <section className="createEvent">
+          <img src={require('../img/santa.png')} className="leftDownImg" alt="" />
+          <img src={require('../img/reindeer.png')} className="topRightImg" alt="" />
           <Link to={"/"} className="link--back">Back to main page</Link>
           <form className="createEvent__form" onSubmit={handleSubmit}>
               <label>Event Name</label>

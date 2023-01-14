@@ -3,7 +3,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import EventService from "../features/eventService";
 import {toast} from 'react-toastify'
 function JoinEvent() {
-    const {id=""} = JSON.parse(localStorage.getItem('eventData'));
+    const {id=""} = JSON.parse(localStorage.getItem('eventData')) || "";
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
       _id:id || "",
@@ -28,6 +28,8 @@ function JoinEvent() {
     }
     return (
       <section className="createEvent">
+        <img src={require('../img/santa.png')} className="leftDownImg" alt="" />
+        <img src={require('../img/reindeer.png')} className="topRightImg" alt="" />
         <Link to={"/"} className="link--back">Back to main page</Link>
           <form onSubmit={handleSubmit} className="createEvent__form">
               <label>Event ID</label>

@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid} from '@fortawesome/fontawesome-svg-core/import.macro'
 function UsingInstruction() {
     const lpar = "("
     const ppar =")"
@@ -13,7 +15,7 @@ function UsingInstruction() {
                     You just have to create event and add your friends by typing their names!
                     GiftDrawer will genarate for you a unique id number.
                     Using this number you will be able to log into your event page.
-                    Where you will be able to draw your match and add your wishlist
+                    Where all the magic happens <FontAwesomeIcon icon={solid("wand-magic-sparkles")}/>.
                 </p>
                 <section className="instruction">
                     <ul className="instruction__list">

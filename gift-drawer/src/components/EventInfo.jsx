@@ -10,13 +10,13 @@ function EventInfo(props) {
     <section className="event__info">
         <section className="info__cart--welcome">
             <p className="txt--title">
-                Hello {currentUser.name}
+                Hello {currentUser.name}!
             </p>
             <p>
-                You are making gift for: 
-                <Link to={`/wishlist/${currentUser.drawnMemberName}`} title={`see ${currentUser.drawnMemberName} wishlist`}>
+                You are making gift for: <Link to={`/wishlist/${currentUser.drawnMemberName}`} title={`see ${currentUser.drawnMemberName} wishlist`}>
                     <strong>{currentUser.drawnMemberName}</strong>
                 </Link>
+                
             </p>
             {
                 currentUser.drawnMemberName.length < 1 && 
@@ -30,9 +30,9 @@ function EventInfo(props) {
             </Link>
         </section>
         <section className="info__cart">
-            <p className="txt--title">Event details</p>
+            <p className="txt--title">Event details:</p>
             <strong>Event: {eventData.name} </strong>
-            <p>Max gift price:<strong>{eventData.maxPrice}$</strong></p>
+            <p>Max gift price: <strong>{eventData.maxPrice}$</strong></p>
             <span>Event will take place at: {eventDate}</span>
         </section>
     </section>

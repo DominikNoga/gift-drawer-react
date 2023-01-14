@@ -16,7 +16,7 @@ function Home() {
             <section className="main__section">
                 <h2 className="section__title">
                     Thanks to GiftDrawer throwing a secret santa party
-                    will never again cause you any problems
+                    will never cause you any problems again 
                 </h2>
                 <div className="inputField">
                     <input 
@@ -39,8 +39,10 @@ function Home() {
                         Create
                     </button>
                     <Link className="joinEventLink" to="/joinEvent">Join existing event</Link>
-                </div>
+                </div>                
             </section>
+            <img src={require('../img/santa.png')} className="leftDownImg" alt="" />
+            <img src={require('../img/reindeer.png')} className="topRightImg" alt="" />
         </header>
         <UsingInstruction/>
         <footer className="footer">Merry X-mas !!</footer>    

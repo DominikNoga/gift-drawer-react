@@ -5,6 +5,8 @@ import PartyMembersList from '../components/PartyMembersList';
 import Spinner from '../components/Spinner';
 import useFetchEvent from '../customHooks/useFetchEvent';
 import EventService from '../features/eventService';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid} from '@fortawesome/fontawesome-svg-core/import.macro'
 function Event() {
     const {id, name:username, token} = JSON.parse(localStorage.getItem('eventData'));
     const {eventData, currentUser} = useFetchEvent(id, username, token);
@@ -41,7 +43,7 @@ function Event() {
   
   return (
     <>
-        <header><Link to="/" title='go back to main page' className='header__link'>GiftDrawer</Link></header>
+        <header><Link to="/" title='go back to main page' className='header__link'>GiftDrawer <FontAwesomeIcon icon={solid("gift")}/></Link></header>
         <main className="event__container">
             <EventInfo eventData={eventData} currentUser={currentUser} updateEvent={updateEvent}/>
             <PartyMembersList members={eventData.members}/>

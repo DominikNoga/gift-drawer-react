@@ -31,8 +31,9 @@ p{
     margin: 0;
 }
 .instruction__point{
-    margin-left: 5em;
-    width: 70%;
+    margin-left: 3em;
+    min-width: 70%;
+    width: fit-content;
     position: relative;
     &::after{
         content: '';
