@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
-    "build":"cd frontend && npm run build"
+    "build":"cd gift-drawer && npm run build"
   },
   "author": "Domink Noga",
   "license": "MIT",
