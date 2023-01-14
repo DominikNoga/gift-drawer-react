@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
+    "build": "cd gift-drawer && npm run build",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix gift-drawer && npm run build --prefix gift-drawer"
   },
   "author": "Domink Noga",
