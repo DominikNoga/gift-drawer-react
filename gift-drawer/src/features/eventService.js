@@ -14,7 +14,7 @@ const joinEvent = async (eventData) =>{
 const addEvent = async(eventData) =>{
     const response = await axios.post(apiUrl, eventData)
     if(response)
-        localStorage.setItem("id", response.data._id)
+        localStorage.setItem("eventData", JSON.stringify({ id:response.data._id}))
     
     return response.data;
 }
