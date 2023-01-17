@@ -1,6 +1,8 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react"
 import {Link, useNavigate } from "react-router-dom";
 import UsingInstruction from "../components/UsingInstruction";
+import {solid} from '@fortawesome/fontawesome-svg-core/import.macro'
 
 function Home() {
   const [eventName, setEventName] = useState("");
@@ -14,15 +16,15 @@ function Home() {
       <main className="main">
         <header className="header">
             <section className="main__section">
-                <h2 className="section__title">
+                <h1 className="section__title">
                     Thanks to GiftDrawer throwing a secret santa party
                     will never cause you any problems again 
-                </h2>
+                </h1>
                 <div className="inputField">
                     <input 
                         type="text" 
-                        className="main__input" 
-                        placeholder="Give a name to your event ..."
+                        className="main__input"
+                        placeholder="Event name..."
                         value={eventName}
                         onChange={(e)=>{
                             setEventName(e.target.value)
@@ -38,8 +40,13 @@ function Home() {
                     >
                         Create
                     </button>
-                    <Link className="joinEventLink" to="/joinEvent">Join existing event</Link>
-                </div>                
+                </div>       
+                <Link className="joinEventLink" to="/joinEvent">Join existing event</Link>
+                <a title="See how to use our app" className="scrollToInstruction" href="#about">
+                    See how to use our app
+                    <br />
+                    <FontAwesomeIcon icon={solid("chevron-down")} />
+                </a>         
             </section>
             <img src={require('../img/santa.png')} className="leftDownImg" alt="" />
             <img src={require('../img/reindeer.png')} className="topRightImg" alt="" />

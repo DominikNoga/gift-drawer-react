@@ -23,7 +23,7 @@ function Event() {
           members:eventData.members
       }
       try {
-        await EventService.updateEvent(id, event, token)
+        await EventService.updateEvent(event,id, token)
         setTimeout(() =>{
           setIsLoading(false);
           setUserChosen(true)
@@ -46,6 +46,7 @@ function Event() {
         <header><Link to="/" title='go back to main page' className='header__link'>GiftDrawer <FontAwesomeIcon icon={solid("gift")}/></Link></header>
         <main className="event__container">
             <EventInfo eventData={eventData} currentUser={currentUser} updateEvent={updateEvent}/>
+            <h1>Event participants</h1>
             <PartyMembersList members={eventData.members}/>
         </main>
         <footer className="footer">Merry X-mas !!</footer>    

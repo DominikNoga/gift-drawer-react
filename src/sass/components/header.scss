@@ -1,6 +1,9 @@
 @use './buttons';
 @use '../abstracts/colors' as colors;
 $mainInputHeight:3em;
+.section__title{
+    font-size: 30px;
+}
 .header{
     width: 100%;
     height: 100vh;
@@ -13,74 +16,87 @@ $mainInputHeight:3em;
     font-family: Lato;
     justify-content: center;
     position: relative;
-    a{
-        color:inherit;
-    }
-    
-    .inputField{
-        width: 80%;
-        margin: auto;
-        position: relative;
-        height: $mainInputHeight;
-    }
     .main__section{
         color: white;
-        transform: translateY(-50%);
-        width:max(30%, 500px);
+        transform: translateY(-30%);
+        width:min(98%, 600px);
         padding:1em;
-        border-radius: 1em;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .inputField{
+        width: 80%;
+        position: relative;
+        height: $mainInputHeight;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &::before{
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            box-shadow: 0 0 .5rem rgba(black, .7);
+            position: absolute;
+            display: block;
+            height: $mainInputHeight;
+            border-radius: 1rem;
+            display: none;
+        }
+        &:has(.main__input:focus)::before{
+            display: block;
+        }
     }
     .main__input{
         width: 100%;
-        border-radius: 2em;
+        border-radius: 2rem;
+        font-size: 18px;
         height: $mainInputHeight;
         border:none;
-        position: relative;
-        padding:.5em 1.2em;
+        padding:.5rem 1.2rem;
         &:focus{
             outline:none;
         }
-        &::before{
-            content: '';
-            display: block;
-            position: absolute;
-            width: 500px;
-            height: $mainInputHeight;
-            top:0;
-            left: 0;
-            box-shadow: 0 0 10px rgba(black, .4);
-            padding:2em;
-            background-color: red;
-        }
+        
     }
     .insideBtn{
         @extend .btn--important;
         position: absolute;
         right: 0;
         top:50%;
-        padding:0 2em;
-        height: calc($mainInputHeight - .3em);
+        padding-top: 0;
+        padding-bottom: 0;
+        padding:0 1.5rem;
+        font-size: 16px;
+        height: calc($mainInputHeight - .3rem);
         background-color: colors.$memberBg;
-        transform: translate(-2%, -62%); 
-        border:none;  
+        transform: translate(-2%, -50%); 
         transition: opacity .3s;
         &:hover{
-            transform: translate(-2%, -62%);
-            opacity: .9;
+            transform: translate(-2%, -50%);
+            opacity: .92;
         }
+    }
+    .scrollToInstruction{
+        font-size: 16px;
+        display: block;
+        margin-top: .5rem;
+        text-align: center;
     }
     .joinEventLink{
         display: block;
         text-shadow: none;
-        margin-top: 1em;
         color:white;
-        font-size: 16px;
-        font-weight: bold;
-        text-decoration: none;
+        font-size: 20px;
+        font-weight: bold; 
+        &:hover{
+            text-decoration: underline;
+        }
     }
-    .joinEventLink:hover{
-        text-decoration: underline;
-    }
+   
 }
 .leftDownImg{
     position: absolute;
@@ -90,7 +106,7 @@ $mainInputHeight:3em;
   }
   .topRightImg{
     position: absolute;
-    top:0;
+    top:3%;
     right:5%;
     width:10%;
   }

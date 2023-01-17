@@ -20,6 +20,9 @@ function Spinner(props) {
           )
         }
       </div>
+      <img src={require('../img/santa.png')} className="leftDownImg" alt="" />
+      <img src={require('../img/reindeer.png')} className="topRightImg" alt="" />
+          
     </div>
   )
 }

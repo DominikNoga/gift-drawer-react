@@ -1,11 +1,11 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { solid} from '@fortawesome/fontawesome-svg-core/import.macro'
+import {FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {solid} from '@fortawesome/fontawesome-svg-core/import.macro'
 function UsingInstruction() {
     const lpar = "("
     const ppar =")"
   return (
     <div>
-      <section className="about">
+      <section className="about" id="about">
             <article className="main__article">
                 <h1 className="article__title">
                     Application was created to help you and your friends organise secret santa party

@@ -49,59 +49,61 @@ function CurrentUserWishlist({user, id}) {
     
     return (
         <main className="main__wishlist">
-            <p className="txt--title">
-                Add wishes and let your friends fulfill them
-            </p>
-            <form onSubmit={addWish} className="wish__form">
-                <input 
-                    type="text" 
-                    className="input__wish" 
-                    placeholder="Wish description" 
-                    value={newWish.description}
-                    onChange={
-                        e => {
-                            setNewWish(prevWish =>({
-                                ...prevWish,
-                                description:e.target.value
-                            }))
+            <section className="wishlist__wrapper">
+                <span className="txt--title">
+                    Add wishes and let your friends fulfill them
+                </span>
+                <form onSubmit={addWish} className="wish__form">
+                    <input 
+                        type="text" 
+                        className="input__wish" 
+                        placeholder="Wish description" 
+                        value={newWish.description}
+                        onChange={
+                            e => {
+                                setNewWish(prevWish =>({
+                                    ...prevWish,
+                                    description:e.target.value
+                                }))
+                            }
                         }
-                    }
-                    required
-                />
-                <div className="link__inputs">
-                    {
-                        newWish.links.map((link, i) =>(
-                            <input 
-                                key={i} 
-                                type="text" 
-                                className="input__wish" 
-                                placeholder="Add link to your gift"
-                                value={link}
-                                onChange={
-                                    e =>{
-                                        const links = newWish.links;
-                                        links[i] = e.target.value;
-                                        setNewWish(prevWish =>({
-                                            ...prevWish,
-                                            links:links
-                                        }))
+                        required
+                    />
+                    <div className="link__inputs">
+                        {
+                            newWish.links.map((link, i) =>(
+                                <input 
+                                    key={i} 
+                                    type="text" 
+                                    className="input__wish" 
+                                    placeholder="Add link to your gift"
+                                    value={link}
+                                    onChange={
+                                        e =>{
+                                            const links = newWish.links;
+                                            links[i] = e.target.value;
+                                            setNewWish(prevWish =>({
+                                                ...prevWish,
+                                                links:links
+                                            }))
+                                        }
                                     }
-                                }
-                            />
-                        ))   
-                    }
-                    {
-                        newWish.links.length < 4 &&
-                        <div onClick={addMoreLinks} className="btn--circle" title="Add more links">+</div>
-                    }
-                    {
-                        newWish.links.length > 1 && <div onClick={cutLink} className="btn--circle" title="Add fewer links">-</div>
-                    }
-                </div>
-                
-                <button className="btn">Add wish</button>
-            </form>
-            <GiftList wishes={wishes} wishFuction={deleteWish} other={false} />
+                                />
+                            ))   
+                        }
+                        {
+                            newWish.links.length < 4 &&
+                            <div onClick={addMoreLinks} className="btn--circle" title="Add more links">+</div>
+                        }
+                        {
+                            newWish.links.length > 1 && <div onClick={cutLink} className="btn--circle" title="Add fewer links">-</div>
+                        }
+                    </div>
+                    
+                    <button className="btn">Add wish</button>
+                </form>
+                <GiftList wishes={wishes} wishFuction={deleteWish} other={false} />
+            </section>
         </main>
     )
 }

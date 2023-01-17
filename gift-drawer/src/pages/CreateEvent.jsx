@@ -70,7 +70,7 @@ function CreateEvent() {
           <img src={require('../img/reindeer.png')} className="topRightImg" alt="" />
           <Link to={"/"} className="link--back">Back to main page</Link>
           <form className="createEvent__form" onSubmit={handleSubmit}>
-              <label>Event Name</label>
+              <label className="label">Event Name</label>
               <input 
                   type="text" 
                   id="eventName" 
@@ -80,6 +80,7 @@ function CreateEvent() {
                   value={formData.eventName}
                   onChange={onChange}
                   required
+                  placeholder="Event name..."
               />
               <label>Date of event</label>
               <input 
@@ -90,6 +91,7 @@ function CreateEvent() {
                   value={formData.eventDate}
                   onChange={onChange}
                   required
+                  placeholder="Date of event..."
               />
               <label>Max gift price</label>
               <input 
@@ -99,6 +101,7 @@ function CreateEvent() {
                   name="maxPrice"
                   value={formData.maxPrice}
                   onChange={onChange}
+                  placeholder="Max gift price..."
               />
               <label>Password</label>
               <input 
@@ -109,6 +112,7 @@ function CreateEvent() {
                   value={formData.password}
                   onChange={onChange}
                   required
+                  placeholder="Password..."
               />
               <label>Repeat password</label>
               <input 
@@ -119,6 +123,7 @@ function CreateEvent() {
                   value={formData.password2}
                   onChange={onChange}
                   required
+                  placeholder="Repeat password"
               />
               <strong>Event members</strong>
               <ol className="membersList">

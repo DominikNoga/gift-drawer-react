@@ -40,6 +40,7 @@ function JoinEvent() {
                   name="_id"
                   value={formData._id}
                   onChange={onChange}
+                  placeholder="Event ID"
                   required/>
               <label>Username</label>
               <input 
@@ -50,8 +51,9 @@ function JoinEvent() {
                   value={formData.name}
                   onChange={onChange}
                   required
+                  placeholder="Username..."
               />
-              <label >Password</label>
+              <label>Password</label>
               <input 
                   name = "password"
                   type="password" 
@@ -60,6 +62,7 @@ function JoinEvent() {
                   value={formData.password}
                   onChange={onChange}
                   required
+                  placeholder="Password..."
               />
               <button className="btn--form">Join event</button>
           </form>

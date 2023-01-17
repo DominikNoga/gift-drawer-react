@@ -1,3 +1,4 @@
+@use 'components/global';
 @use 'components/header';
 @use 'components/article';
 @use 'components/footer';
@@ -5,14 +6,3 @@
 @use 'components/event';
 @use 'components/loadingWindow';
 @use 'components/wishlist';
-*{
-    box-sizing: border-box;
-}
-body{
-    padding: 0;
-    margin: 0;
-}
-a{
-    color:inherit;
-    text-decoration: none;
-}
